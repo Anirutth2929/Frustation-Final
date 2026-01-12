@@ -1,0 +1,18 @@
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'build'
+      - '-t'
+      - 'us-central1-docker.pkg.dev/project-70309335-c83d-4b66-8d2/ani-repo/hello-service:latest'
+      - '.'
+
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'push'
+      - 'us-central1-docker.pkg.dev/project-70309335-c83d-4b66-8d2/ani-repo/hello-service:latest'
+
+images:
+  - 'us-central1-docker.pkg.dev/project-70309335-c83d-4b66-8d2/ani-repo/hello-service:latest'
+
+options:
+  logging: CLOUD_LOGGING_ONLY

@@ -25,8 +25,8 @@ def main():
     instance_connection_name = os.environ["INSTANCE_CONNECTION_NAME"]
 
     # Secrets
-    db_user = get_secret("db-user")
-    db_password = get_secret("db-password")
+    db_user = get_secret("DB_USER")
+    db_password = get_secret("DB_PASSWORD")
 
     # Connect to Cloud SQL (MySQL)
     connection = pymysql.connect(

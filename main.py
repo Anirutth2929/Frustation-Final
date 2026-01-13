@@ -18,11 +18,13 @@ def main():
 
     # ---------- Connect to Cloud SQL (MySQL) ----------
     connection = pymysql.connect(
-        user=db_user,
-        password=db_password,
-        unix_socket=f"/cloudsql/{instance_connection_name}",
-        database=db_name,
+    host="34.57.105.246",  # your Cloud SQL public IP
+    user=os.environ["DB_USER"],
+    password=os.environ["DB_PASSWORD"],
+    database=os.environ["DB_NAME"],
+    port=3306
     )
+
 
     cursor = connection.cursor()
     cursor.execute("SELECT id, name, email FROM users")
